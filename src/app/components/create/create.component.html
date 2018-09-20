@@ -1,0 +1,65 @@
+<!-- <div class="card">
+  <div class="card-body">
+    <form>
+      <div class="form-group">
+        <label class="col-md-4">Game Name</label>
+        <input type="text" class="form-control" name="game_name"/>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Game Price</label>
+        <input type="text" class="form-control" name="game_price"/>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+  </div>
+</div> -->
+<!-- <div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Game Name</label>
+        <input type="text" class="form-control" formControlName="name" #name />
+      </div>
+      <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['name'].errors.required">
+          Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Game Price</label>
+        <input type="text" class="form-control" formControlName="price" #price/>
+      </div>
+      <div *ngIf="angForm.controls['price'].invalid && (angForm.controls['price'].dirty || angForm.controls['price'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['price'].errors.required">
+          Price is required.
+        </div>
+      </div>
+     
+        <div class="form-group">
+          <button (click)="addGame(name.value, price.value)" [disabled]="angForm.pristine || angForm.invalid"   class="btn btn-primary">Add</button>
+          <button (click)="goTo()"   class="btn btn-primary">goToList</button>
+        </div>
+         
+    </form>
+  </div>
+</div> -->
+
+<div style="background-color:#e5e5e5;padding:15px;text-align:right;">
+  <h1>Omniwyse</h1>
+  <button class="btn btn-primary">Login User</button>
+
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <div style="padding:50px;text-align:center;">
+
+      <button class="btn btn-primary" (click)="goTo()">NAVIGATE TO</button>
+
+
+    </div>
+
+  </div>
+</div>
