@@ -5,10 +5,11 @@ const url = require("url");
 let win;
 
 function createWindow() {
-  win = new BrowserWindow({ width: 1000, height: 800, frame: false });
+  win = new BrowserWindow({ width: 1000, height: 800 });
 
   //to remove menu 
   win.setMenu(null);
+  
   // load the dist folder from Angular
   win.loadURL(
     url.format({
@@ -17,6 +18,9 @@ function createWindow() {
       slashes: true
     })
   );
+
+  //added this line to open developer tools for debugging
+  win.webContents.openDevTools();
 
   // The following is optional and will open the DevTools:
   // win.webContents.openDevTools()

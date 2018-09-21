@@ -54,12 +54,14 @@
 
 <div class="card">
   <div class="card-body">
-    <div style="padding:50px;text-align:center;">
-
-      <button class="btn btn-primary" (click)="goTo()">NAVIGATE TO</button>
-
-
-    </div>
+      <div style="padding:50px;text-align:center;">
+          <div class="btn-group-vertical">
+            <button class="btn btn-primary" (click)="goTo()">NAVIGATE TO</button>
+            <button style="margin-top:5px; width: 400px" class="btn btn-primary" (click)="goTo()">SECOND BUTTON</button>
+            <button style="margin-top:5px;" class="btn btn-primary" (click)="goTo()">THIRD BUTTON</button>
+          </div>
+    
+        </div>
 
   </div>
 </div>
