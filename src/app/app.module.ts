@@ -8,6 +8,7 @@ import { IndexComponent } from './components/index/index.component';
 import {HttpClientModule} from '@angular/common/http';
 import { GameService } from './game.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import {NgxElectronModule} from 'ngx-electron';
 
 const routes:Routes = [
   { 
@@ -39,7 +40,8 @@ const routes:Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxElectronModule
   ],
   providers: [GameService],
   bootstrap: [AppComponent]
