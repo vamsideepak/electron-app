@@ -1,14 +1,15 @@
 var { app, BrowserWindow } = require("electron");
+// const java = require('java');
 var path = require("path");
 var url = require("url");
 var childProcess = require('child_process');
 
-// require('find-java-home')(function (err, home) {
-//   if (err) return console.log('java home error:' + err);
-//   console.log('find home error :' + home);
-// })
+require('find-java-home')(function (err, home) {
+  if (err) return console.log('java home error:' + err);
+  console.log('find home success :' + home);
+})
 
-//var java = require('java');
+
 //var javaLangSystem = java.import('java.lang.System');
 
 //javaLangSystem.out.printlnSync('Hello World');

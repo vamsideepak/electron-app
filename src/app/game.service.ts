@@ -10,7 +10,7 @@ export class GameService {
     
 
  	constructor(private http: HttpClient) { }
-   public uri = 'http://localhost:4000';
+   public uri = 'http://192.168.1.31:8080/encoder';
   	addGame(name, price) {
         const obj = {
           name: name,
@@ -29,7 +29,14 @@ export class GameService {
                     .http
                     .get(`${this.uri}/games`);
       }
-      
+
+
+      cardData() {
+        return this
+               .http
+               .get(`${this.uri}`);
+ }
+
       editGame(id) {
         return this
               .http

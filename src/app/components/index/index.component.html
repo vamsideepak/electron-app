@@ -20,41 +20,47 @@
 
 
 <div style="background-color:#e5e5e5;padding:40px;text-align:right;">
-    <h1>Omniwyse</h1>
-    <button type="button"  style="margin-right: 5px" class="btn btn-primary" >PRINT</button>
-    <button  type = "button" style="margin-right: 5px" class="btn btn-primary" >ADD</button>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <div style="padding:50px;text-align:center;">
-        
+  <h1>Omniwyse</h1>
+  <button type="button" style="margin-right: 5px" class="btn btn-primary">PRINT</button>
+  <button type="button" style="margin-right: 5px" class="btn btn-primary">ADD</button>
+</div>
+<button type="button" style="margin-left: 45%" class="btn btn-primary" (click)="getCardData()">Get Card Data</button>
+<div class="card">
+  <div class="card-body">
+    <div *ngIf="show" style="padding:50px;text-align:center;">
+      <!-- <div ><p><strong>Farecode:</strong> {{carddata.printed_id}}</p></div> -->
+      <div>
+        <p><strong>Printed-Id:</strong> {{carddata.printed_id}}</p>
+      </div>
+      <div>
+        <p><strong>Bonus Rides:</strong> {{carddata.bonus_pass.ride_count}}</p>
+      </div>
+      <div>
+        <p><strong>Card Expiration Date:</strong> {{carddata.card_expiration_date_str}}</p>
+      </div>
+
+      <div>
         <table class="table table-hover">
           <thead>
-          <tr>
-                <th> Name</th>
-                <th> Price</th>
-              <!-- <td colspan="2">Actions</td> -->
-          </tr>
-          </thead>
-          <tbody>
-            <tr >
-                <td>dhariya</td>
-                <td>100000</td>
-                <!-- <td>Edit</td>
-                <td>Delete</td> -->
-            </tr>
-            <tr >
-              <td>deepak</td>
-              <td>50000</td>
-              <!-- <td>Edit</td>
-              <td>Delete</td> -->
-          </tr>
-        </tbody>
-        </table>
-    
-    </div>
-    </div></div>
-  
-    <button (click)="backToCreate()"  style=" text-align:center; margin-top:20px;"  class="btn btn-primary">Back</button>
+            <tr>
+              <th> Product Type</th>
+              <th>Designator</th>
+              <th> Status</th>
 
-    <button (click)="playPingPong()"  style=" text-align:center;  text-align:center; margin-left:30px ; margin-top:25px ; "  class="btn btn-primary">Get Electron</button>
+            </tr>
+          </thead>
+
+          <tr *ngFor="let card of carddata.products ">
+            <td>{{ card.product_type }}</td>
+            <td>{{ card.designator }}</td>
+            <td>{{card.status}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button (click)="backToCreate()" style=" text-align:center; margin-left:48%;" class="btn btn-primary">Go Back</button>
+
+<!-- <button (click)="playPingPong()"  style=" text-align:center;  text-align:center; margin-left:30px ; margin-top:25px ; "  class="btn btn-primary">Get Electron</button> -->

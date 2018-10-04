@@ -8,3 +8,9 @@ export interface User {
     name: String;
     price: Number;
 }
+
+export interface Card {
+    id: Number;
+    name: String;
+    price: Number; 
+}
