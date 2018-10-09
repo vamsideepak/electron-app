@@ -47,8 +47,9 @@ pcs.on('reader', function(reader) {
                               console.log(err);
                           } else {
                               console.log('Data received', data);
-                              reader.close();
-                              pcs.close();
+                              console.log('Data base64', data.toString('base64'));
+                              // reader.close();
+                              // pcs.close();
                           }
                       });
                   }
