@@ -3,15 +3,21 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import { GameService } from '../../game.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import {ElectronService} from 'ngx-electron';
 //import { NFC } from 'nfc-pcsc';
 //import {pcsc} from 'pcsclite';
 declare var WebCamera: any;
 declare var dialog: any;
 declare var fs: any;
 //declare var NFC: any;
+declare var electron: any;
  declare var pcsc: any;
  var pcs = pcsc();
 
+//  electron.ipcRenderer.on('updateResult', (event, data)=>{
+//     var value = data;
+//     console.log('java result', value)
+//   });
 
 pcs.on('reader', function(reader) {
 
@@ -66,47 +72,7 @@ pcs.on('reader', function(reader) {
 pcs.on('error', function(err) {
   console.log('PCSC error', err.message);
 });
-/*
-@SMART CODE READING CODE STARTING FROM HERE
-*/
-// const nfc = new NFC();
 
-// nfc.on('reader', reader => {
- 
-//   console.log(`${reader.reader.name}  device attached`);
-
-//   // needed for reading tags emulated with Android HCE
-//   // custom AID, change according to your Android for tag emulation
-//   // see https://developer.android.com/guide/topics/connectivity/nfc/hce.html
-//   reader.aid = 'F222222222';
-
-//   reader.on('card', card => {
-
-//       console.log(`${reader.reader.name}  card detected`, card);
-
-//   });
-
-//   reader.on('card.off', card => {
-//       console.log(`${reader.reader.name}  card removed`, card);
-//   });
-
-//   reader.on('error', err => {
-//       console.log(`${reader.reader.name}  an error occurred`, err);
-//   });
-
-//   reader.on('end', () => {
-//       console.log(`${reader.reader.name}  device removed`);
-//   });
-
-// });
-
-// nfc.on('error', err => {
-//   console.log('an error occurred', err);
-// });
-
-/*
-@SMART CODE READING CODE END HERE
-*/
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
@@ -117,10 +83,10 @@ export class CreateComponent implements OnInit {
  title = 'Add Game';
 
   angForm: FormGroup;
-  
+  event = "20+20";
   enabled = false
-
-  constructor(private gameservice: GameService, private fb: FormBuilder,private router: Router,) {
+value:any
+  constructor(private gameservice: GameService, private fb: FormBuilder,private router: Router, private electronService: ElectronService) {
     this.createForm();
    }
 
@@ -137,6 +103,19 @@ export class CreateComponent implements OnInit {
   goTo(){
     this.router.navigate(['index']);
   }
+
+//JAVA CALL
+  fromJava(){
+this.electronService.ipcRenderer.send('readSmartcard',this.event)
+console.log('java call', this.event)
+// this.electronService.ipcRenderer.on('updateResult', function(event, data){
+//     this.value = data;
+//     console.log('java result', this.value)
+//   });
+  }
+
+
+
 
   captureCamera(){
     if(!this.enabled){
@@ -193,6 +172,10 @@ export class CreateComponent implements OnInit {
 
   
   ngOnInit() {
+    this.electronService.ipcRenderer.on('updateResult', (event, data)=>{
+        this.value = data;
+        console.log('final result', this.value)
+      });
   }
 
 }
