@@ -78,109 +78,14 @@ app.on("activate", () => {
 
 });
 
-
-
-// ipcMain.on('calculate', (event, arg) => { 
-// console.log("inside ipcmain")
-// var javaIntializer = javaInit.getJavaInstance();
-// // var instancePath ="com.genfare.smartcard.CardEncoder"
-
-// //console.log(java.classpath)
-// //var list1 = java.newInstanceSync("com.genfare.pos.applet.POSApplet");
-// console.log('java level check',javaIntializer)
-// // var param = "ACS ACR1252 1S CL Reader PICC 0"
-// // var config = {
-// //   "agency_id":194,
-// //   "end_of_transit_day_desfire":null,
-// //   "priorities_and_configuration_type":1,
-// //   "printed_id_file_version":2,
-// //   "card_properties_file_version":0,
-// //   "transfer_file_version":1,
-// //   "product_list_file_version":0,
-// //   "product_file_version":3,
-// //   "journal_file_version":1,
-// //   "equipment_id":0,
-// //   "first_product_must_be_stored_value":true,
-// //   "number_of_products":4,
-// //   "number_of_transfers":1,
-// //   "number_of_bonus_passes":1,
-// //   "number_of_pay_as_you_go_passes":1,
-// //   "max_stored_value":20000,
-// //   "max_pending_passes":3,
-// //   "agency_timezone_offset":-21600000,
-// //   "accountFlag":false
-// //   }
-
-// javaIntializer.newInstance("com.genfare.smartcard.CardService", function(err, list2) {
-//   if (err){
-//     console.error("new instance error",err)
-//   }
-//  // console.log(list2)
-//   list2.readCardSync();
-//   // list2.addSync("item2");
-//    console.log('readcard',list2.readCardSync()); // [item1, item2]
-// });
-// // var list1 = java.import(instancePath);
-// // console.log(list1)
-// // list2 = new list1(param,config,"49 A8 B4 8B 3F 45 9F BC 3A 31 9B 53 90 EB 68 08",
-// // "79 AA EF 33 FB EF C1 2C E3 13 04 9F 91 16 B4 86", "90 CF 88 CB E0 8E D1 7C F3 37 C2 93 2B E9 CF E2")
-// //   list2.readCardSync();
-
-//  console.log("444444444444444444444444444444444444444444444444",list1)
-//  console.log("33333333333333333333333333333333",list2)
-// // var list2 = new list1()
-// // console.log("jsahiksaihjoikdsaoi",list2)
-// // list1.readCardSync()
-// // var list2 = new list1()
-// // list2.getAccountDetailsSync("dsuii","uadshuia")
-
-
-//   /**
-//    * should specify src in java.classpath (src word is mandatory in path)
-//    *  */
-//   // java.classpath.push(path.join(__dirname , "/javasrc/src"));
-//   // var Calculator = java.import("de.lipros.electron.java.example.SimpleCalculator");
-//   // var result = Calculator.calculateSync(Calculator.getFormatedListSync(arg));
-
-//   // var testingMethod = Calculator.testingSync(1)
-//   // console.log(`Testing ${testingMethod}`);
-
-//   // event.sender.send('updateResult', result);
-
-//   // java.classpath.push(path.join(__dirname , "/genfarepos/pos-applet/src"));
-//   // console.log(`Path **********  ${java.classpath}`)
-//   // var POSApplet = java.import("com.genfare.pos.applet.POSApplet");
-
-
-//   // var inst = new POSApplet();
-
-
-
-//   // event.sender.send('updateResult', "");
-
-
-// })
+/*
+ * Read SmartCard Functionality Start Here
+  */
 
 ipcMain.on('readSmartcard', (event, arg) => {
-  console.log("inside ipcmain")
-  var javaIntializer = javaInit.getJavaInstance();
-
-  //console.log(java.classpath)
-  //var list1 = java.newInstanceSync("com.genfare.pos.applet.POSApplet");
-  console.log('java level check', javaIntializer)
-  // javaIntializer.newInstance("com.genfare.smartcard.CardEncoder", function (err, list2) {
-  //   if (err) {
-  //     console.log(err)
-  //   }
-  //   // console.log(list2)
-  //   list2.readCardSync();
-  //   // list2.addSync("item2");
-  //   console.log('readcard', list2.readCardSync()); // [item1, item2]
-  // });
-
-  var instancePath = "com.genfare.applet.encoder.EncoderApplet"
-  var param = "ACS ACR1252 1S CL Reader PICC 0"
-  var config = {
+  var javaInstancePath = "com.genfare.applet.encoder.EncoderApplet"
+  var cardName =    "ACS ACR1252 1S CL Reader PICC 0"
+  var cardConfig = {
     "agency_id": 194,
     "end_of_transit_day_desfire": null,
     "priorities_and_configuration_type": 1,
@@ -202,21 +107,22 @@ ipcMain.on('readSmartcard', (event, arg) => {
     "accountFlag": false
   }
 
+  var EncoderApplet = java.import(javaInstancePath);
+  var EncoderInstance = new EncoderApplet()
 
-  var list1 = java.import(instancePath);
+  console.log("before java call  Data", EncoderInstance)
 
-
-  var list2 = new list1()
-
-  console.log("before java call  Data", list2)
-
-  var result = list2.setEncoderSync(param, config, "49 A8 B4 8B 3F 45 9F BC 3A 31 9B 53 90 EB 68 08",
+  var result = EncoderInstance.setEncoderSync(cardName, JSON.stringify(cardConfig), "49 A8 B4 8B 3F 45 9F BC 3A 31 9B 53 90 EB 68 08",
     "79 AA EF 33 FB EF C1 2C E3 13 04 9F 91 16 B4 86", "90 CF 88 CB E0 8E D1 7C F3 37 C2 93 2B E9 CF E2");
 
-  console.log("setEncoder Data", result)
-
-  var smartread = list2.readCardSync();
-
-  //console.log('readcard data', smartread)
-
+  console.log("setEncoder Data",  '' +result)
+try {
+  var smartread = EncoderInstance.readCardSync();
+} catch (error) {
+  console.log(error);
+}
 })
+
+/*
+ * Read SmartCard Functionality End Here
+  */

@@ -8,7 +8,7 @@
 //     java.classpath.push(baseDir + "/" + dependency);
 // })
  
-// java.classpath.push("javaSmartCard/com/genfare/smartcard");
+// java.classpath.push("javaSmartCard/src/com/genfare/smartcard");
 // // java.classpath.push("./target/test-classes");
  
 // exports.getJavaInstance = function() {
