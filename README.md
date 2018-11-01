@@ -25,3 +25,24 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## error ==> can not find module jvm.dll.json
+
+npm install -g nw-gyp
+npm install java
+cd node_modules/java
+nw-gyp configure --target=0.10.5
+nw-gyp build
+
+java> npm install
+then npm audit fix
+
+##install SmartCard Drivers from below link
+
+https://www.acs.com.hk/en/products/342/acr1252u-usb-nfc-reader-iii-nfc-forum-certified-reader/
+
+## To Run Electron App
+
+npm run electron  or electron .
+
+
