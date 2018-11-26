@@ -1,0 +1,59 @@
+.cdta{
+    background-color: #0f2b5b;
+    padding:15px;
+    text-align:left;
+    color: white;
+    font-style:italic
+}
+.cdtabtn{
+    padding:150px; 
+    text-align:center
+}
+
+.btnsize{
+    margin-top:5px;
+     width: 450px;
+     height: 100px;
+     background-color: #337ab7;
+     border-radius: 6px;
+     color: white;
+}
+
+.cdta_btn_adm_prnt{
+    margin-top:5px;
+     width: 150px;
+     height: 50px;
+     background-color:#d86404;
+     border-radius: 6px;
+}
+
+.img-circle-sm {      
+    float: left;
+    height: 45px;
+    margin-top: -4px;
+    width: 45px;
+}
+
+.sccw .sccw-spacer,
+.sccw .content-tab-margin {
+
+	margin: 15px;
+}
+
+.sccw-spacer{
+    margin: 20px 0;
+}
+.tab-content{
+    padding: 20px;
+}
+
+.sccw .header-text,
+.sccw input,
+.sccw .strong-span{
+	font-weight: bolder;	
+}
+
+.clearfix{
+    clear: both;
+}
+

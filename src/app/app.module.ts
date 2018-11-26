@@ -8,7 +8,9 @@ import { IndexComponent } from './components/index/index.component';
 import {HttpClientModule} from '@angular/common/http';
 import { GameService } from './game.service';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import {NgxElectronModule} from 'ngx-electron';
+import { LoginComponent } from './components/login/login.component';
 
 const routes:Routes = [
   { 
@@ -28,13 +30,16 @@ const routes:Routes = [
     path: 'index',
     component: IndexComponent
   }
+
+
 ]
 @NgModule({
   declarations: [
     AppComponent,
     CreateComponent,
     EditComponent,
-    IndexComponent
+    IndexComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+#camdemo video{
+    width: unset!important;
+}
+
+#results img{
+    width: 351px;
+    height: 300px;
+}

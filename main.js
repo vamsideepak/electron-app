@@ -49,10 +49,10 @@ function createWindow() {
   );
 
   //added this line to open developer tools for debugging
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
 
   // The following is optional and will open the DevTools:
-  // win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   win.on("closed", () => {
     win = null;
@@ -121,6 +121,8 @@ try {
 } catch (error) {
   console.log(error);
 }
+
+event.sender.send('updateResult', smartread);
 })
 
 /*
