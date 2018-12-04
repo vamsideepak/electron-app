@@ -40,6 +40,8 @@
     "mongoose": "^5.2.15",
     "nfc-pcsc": "^0.6.2",
     "ng": "0.0.0",
+    "ng2-img-cropper": "^0.9.0",
+    "ng2-img-max": "^2.1.18",
     "ngx-bootstrap": "^3.1.1",
     "ngx-electron": "^1.0.4",
     "node-gyp": "^3.8.0",

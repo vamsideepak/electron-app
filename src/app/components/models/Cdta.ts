@@ -1,4 +1,4 @@
-export interface Game {
+export interface Cdta {
     id: Number;
     name: String;
     price: Number;

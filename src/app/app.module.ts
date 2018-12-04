@@ -2,44 +2,37 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CreateComponent } from './components/create/create.component';
-import { EditComponent } from './components/edit/edit.component';
-import { IndexComponent } from './components/index/index.component';
+import { CameraComponent } from './components/camera/camera.component';
 import {HttpClientModule} from '@angular/common/http';
-import { GameService } from './game.service';
+import { CdtaService } from './cdta.service';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {ImageCropperComponent} from 'ng2-img-cropper';
 import {NgxElectronModule} from 'ngx-electron';
-import { LoginComponent } from './components/login/login.component';
+import { ReadcardComponent } from './components/readcard/readcard.component';
 
 const routes:Routes = [
   { 
     path: '', 
-    redirectTo: '/create', 
+    redirectTo: '/readcard', 
     pathMatch: 'full'
    },
   { 
     path: 'create', 
-    component: CreateComponent 
+    component: CameraComponent 
   },
-  {
-    path: 'edit/:id',
-    component: EditComponent
-  },
-  { 
-    path: 'index',
-    component: IndexComponent
-  }
 
+  { 
+    path: 'readcard',
+    component: ReadcardComponent
+  }
 
 ]
 @NgModule({
   declarations: [
     AppComponent,
-    CreateComponent,
-    EditComponent,
-    IndexComponent,
-    LoginComponent
+    CameraComponent,
+    ImageCropperComponent,
+    ReadcardComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +42,7 @@ const routes:Routes = [
     NgxElectronModule,
     
   ],
-  providers: [GameService],
+  providers: [CdtaService],
   bootstrap: [AppComponent]
 })
 

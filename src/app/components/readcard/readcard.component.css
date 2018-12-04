@@ -18,7 +18,6 @@
      border-radius: 6px;
      color: white;
 }
-
 .cdta_btn_adm_prnt{
     margin-top:5px;
      width: 150px;
@@ -26,6 +25,7 @@
      background-color:#d86404;
      border-radius: 6px;
 }
+
 
 .img-circle-sm {      
     float: left;
@@ -56,4 +56,3 @@
 .clearfix{
     clear: both;
 }
-

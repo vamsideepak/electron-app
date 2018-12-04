@@ -12,25 +12,7 @@ require('find-java-home')(function (err, home) {
 })
 
 
-// var javaLangSystem = java.import('java.lang.System');
 
-// javaLangSystem.out.printlnSync('Hello World');
-
-//require('electron-reload')(__dirname);
-// var options = { maxBuffer: 1024 * 1024 * 100, encoding: 'utf8', timeout: 5000 };
-// var child = childProcess.exec('java -jar Main.jar &', options, function (error, stdout, stderr) {
-//   if (error) {
-//     console.log(error.stack);
-//     console.log('ERROR :' + error);
-//     console.log('Error Code: ' + error.code);
-//     console.log('Error Signal: ' + error.signal);
-//   }
-//   console.log('Results: \n' + stdout);
-
-//   if (stderr.length) {
-//     console.log('Errors: ' + stderr);
-//   }
-// });
 let win;
 
 function createWindow() {

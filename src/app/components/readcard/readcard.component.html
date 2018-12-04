@@ -1,0 +1,172 @@
+<div class="cdta">
+    <!-- <h1 >CDTA</h1> -->
+    <img class="navbar-brand" src="https://s3.amazonaws.com/qe-gfcp-tenant/cdta/resources/img/header_logo.png">
+  
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <img class="img-circle-sm" src="https://s3.amazonaws.com/qe-gfcp-tenant/cdta/resources/img/home.module.sccw.name.png">
+      <h2>Fare Media Certifications</h2>
+  
+      <p>Read and Modify Cards</p>
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+            aria-controls="nav-home" aria-selected="true">DESFire</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+            aria-controls="nav-profile" aria-selected="false">Ultralight-C</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+            aria-controls="nav-contact" aria-selected="false">DESFire Account Based</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="card-sample-container float-left">
+            <img alt="fare_card" src="https://s3.amazonaws.com/qe-gfcp-tenant/cdta/resources/img/card_sample_desfire.png">
+          </div>
+          <div class="float-left" style="margin:0 0 0 50px">
+            <div class="sccw-spacer" id="new-card-button-div">
+              <button class="btn btn-primary" id="new-card-button" (click)="readCard($event)" type="button">Read New Card</button>
+            </div>
+            <div class="sccw-spacer" id="clear-card-button-div">
+              <button class="btn btn-danger" id="clear-card-button" type="button">Clear Card</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div class="card-sample-container float-left">
+            <img alt="fare_card" src="https://s3.amazonaws.com/qe-gfcp-tenant/cdta/resources/img/card_sample_desfire.png">
+          </div>
+          <div class="float-left" style="margin:0 0 0 50px">
+            <div class="sccw-spacer" id="new-card-button-div">
+              <button class="btn btn-primary" id="new-card-button" (click)="fromJava()" type="button">Read New Card</button>
+            </div>
+            <div class="sccw-spacer" id="clear-card-button-div">
+              <button class="btn btn-danger" id="clear-card-button" type="button">Clear Card</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <div class="card-sample-container float-left">
+            <img alt="fare_card" src="https://s3.amazonaws.com/qe-gfcp-tenant/cdta/resources/img/card_sample_desfire.png">
+          </div>
+          <div class="float-left" style="margin:0 0 0 50px">
+            <div class="sccw-spacer" id="new-card-button-div">
+              <button class="btn btn-primary" id="new-card-button" (click)="fromJava()" type="button">Read New Card</button>
+            </div>
+            <div class="sccw-spacer" id="clear-card-button-div">
+              <button class="btn btn-danger" id="clear-card-button" type="button">Clear Card</button>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+  
+      <div class="clearfix sccw-spacer" id="sccw-bottom-spacer"></div>
+      <!-- <div *ngIf="show"> -->
+        <!-- <div *ngFor="let card of carddata "> -->
+          <nav *ngIf="show">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="card-details" data-toggle="tab" href="#nav-card-details" role="tab"
+                aria-controls="nav-card-details" aria-selected="true">Card Details</a>
+              <a class="nav-item nav-link" id="product-details" data-toggle="tab" href="#nav-product-details" role="tab"
+                aria-controls="nav-product-details" aria-selected="false">Product Details</a>
+              <a class="nav-item nav-link" id="transfer-details" data-toggle="tab" href="#nav-transfer-details" role="tab"
+                aria-controls="nav-transfer-details" aria-selected="false">Transfer Details</a>
+              <a class="nav-item nav-link" id="card-activity" data-toggle="tab" href="#nav-activity-details" role="tab"
+                aria-controls="nav-activity-details" aria-selected="false">Card Activity</a>
+              <a class="nav-item nav-link" id="edit-card" data-toggle="tab" href="#nav-edit-card" role="tab"
+                aria-controls="nav-edit-card" aria-selected="false">Edit Card</a>
+            </div>
+          </nav>
+  
+          <div class="tab-content" id="nav-tabContent" *ngFor="let card of carddata ">
+             
+            <div class="tab-pane fade show active" id="nav-card-details" role="tabpanel" aria-labelledby="card-details">
+               
+                <div class="col-md-12 content-tab-margin">
+                                  
+                    <div class="row col-md-12">
+                        <div class="col-md-2 header-text" id="card-badlisted">Badlisted?</div>
+                        <div class="col-md-2" id="card-badlisted-data">{{card.is_card_bad_listed}}</div>
+                        <div class="col-md-3 header-text" id="printed-id-file-version">Printed ID File Ver.</div>
+                        <div class="col-md-2" id="printed-id-file-version-data">{{card.printedIDFileVersion}}</div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-2 header-text" id="card-expires">Card Expires</div>
+                        <div class="col-md-2" id="card-expires-data">{{card.card_expiration_date_str}}</div>
+                        <div class="col-md-3 header-text" id="product-list-file-version">Product List File Version</div>
+                        <div class="col-md-2" id="product-list-file-version-data">{{card.productListFileVersion}}</div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-2 header-text" id="profile-expires">Profile Expires</div>
+                        <div class="col-md-2" id="profile-expires-data">{{card.user_profile_expiration_date_str}}</div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-2 header-text" id="langauge-field">Language</div>
+                        <div class="col-md-2" id="langauge-field-data">{{card.preferred_language}}</div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-2 header-text" id="accessibility-field">Accessibility</div>
+                        <div class="col-md-2" id="accessibility-field-data">{{card.accessibility_flags}}</div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-2 header-text" id="tpb-lock-field">Third Party Bill. Lock</div>
+                        <div class="col-md-2" id="tpb-lock-field-data">{{card.is_tpb_locked}}</div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-2 header-text" id="tpb-code-field">Third Party Bill. Code</div>
+                        <div class="col-md-2" id="tpb-code-field-data">{{card.tpb_code}}</div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-2 header-text" id="manufacturer-id">Manufacturer ID</div>
+                        <div class="col-md-2" id="manufacturer-id-data">{{card.manufacturer_id}}</div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-2 header-text" id="equipment-type">Equipment Type</div>
+                        <div class="col-md-2" id="equipment-type-data">{{card.equipment_type}}</div>
+                    </div>
+                    <div class="row col-md-12"><div class="row col-md-12">
+                        <div class="col-md-2 header-text" id="fare-category">Fare Category</div>
+                        <div class="col-md-2" id="fare-category-data">Full</div>
+                        <div class="col-md-3 header-text" id="card-properties-file-version">Properties File Ver.</div>
+                        <div class="col-md-2" id="card-properties-file-version-data">{{card.cardPropertiesFileVersion}}</div>
+                    </div>
+                        <div class="col-md-2 header-text" id="equipment-id">Equipment ID</div>
+                        <div class="col-md-2" id="equipment-id-data">{{card.equipment_id}}</div>
+                    </div>
+                   
+                    
+                </div>
+  
+  
+            </div>
+            <div class="tab-pane fade" id="nav-product-details" role="tabpanel" aria-labelledby="product-details">
+  
+              Product Details
+            </div>
+            <div class="tab-pane fade" id="nav-transfer-details" role="tabpanel" aria-labelledby="transfer-details">
+              Transfer Details
+  
+            </div>
+            <div class="tab-pane fade" id="nav-activity-details" role="tabpanel" aria-labelledby="card-activity">
+              Card Activity
+  
+            </div>
+            <div class="tab-pane fade" id="nav-edit-card" role="tabpanel" aria-labelledby="edit-card">
+  
+              Edit Card
+            </div>
+            <div class="clearfix"></div>
+          <!-- </div> -->
+        <!-- </div> -->
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  <div style="text-align: center; margin: 30px auto">
+  <button class = "btn btn-primary" [routerLink]="['/create']"> Go To Webcamera</button>
+</div>
+  
