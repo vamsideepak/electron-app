@@ -114,7 +114,7 @@ export class ReadcardComponent implements OnInit {
             if (data != undefined && data != "") {
                 this.show = true;
                 this.carddata = new Array(JSON.parse(data));
-                this.ref.detectChanges()
+               // this.ref.detectChanges()
 
                 console.log('final result', this.carddata)
             }

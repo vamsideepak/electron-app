@@ -1,0 +1,116 @@
+Manifest-Version: 1.0
+Application-Name: Genfare SmartCard Encoder
+Archiver-Version: Plexus Archiver
+Built-By: jenkins
+Caller-Allowable-Codebase: *
+Permissions: all-permissions
+Codebase: *
+Application-Library-Allowable-Codebase: *
+Created-By: Apache Maven 3.3.9
+Build-Jdk: 1.8.0_144
+
+Name: com/genfare/applet/encoder/EncoderApplet$20.class
+SHA-256-Digest: 2VOCtSIexAyYypevuHe7Y7jSZLFqkX0pCWB5hryDXfE=
+
+Name: com/genfare/applet/encoder/EncoderApplet$5.class
+SHA-256-Digest: AX8tHhLbfob48ndJ3GpCdrOZ7SGauaOEn4A/X3BTI6c=
+
+Name: com/genfare/applet/encoder/EncoderApplet$3.class
+SHA-256-Digest: NWEaFMBS7HdDGxGSh3iWNcsv8h5p6QjMZMpnHt/YcX4=
+
+Name: com/genfare/applet/encoder/EncoderApplet$12.class
+SHA-256-Digest: 748m68JFn7r2Wna/h555w6mmuLEXa3LcRDqx7IRGndc=
+
+Name: com/genfare/applet/encoder/EncoderApplet$22.class
+SHA-256-Digest: D2HEEe0eRYn1di3Rgm+bwSs6b7VspUmOHuWl1EXxh2c=
+
+Name: com/genfare/applet/encoder/EncoderApplet$8.class
+SHA-256-Digest: dnNZ27zsV0L4hKoc/fQxJIFrP6M0jceeQazWn5pmEZQ=
+
+Name: com/genfare/applet/encoder/EncoderApplet$27.class
+SHA-256-Digest: 2AAUCx6WC008qabPfs/Q8/bxcAPS7w1NmraD2o8h/HU=
+
+Name: com/genfare/applet/encoder/EncoderApplet$32.class
+SHA-256-Digest: IUv8i0WJWgWISK8uodXB8P3OCS0F/ZQ20x80GUsqqtI=
+
+Name: com/genfare/applet/encoder/EncoderApplet$17.class
+SHA-256-Digest: Det/krFTybJnTyDygLrt1M7EuwDIlelKk0GIP6fnVDU=
+
+Name: com/genfare/applet/encoder/EncoderApplet$14.class
+SHA-256-Digest: MhhFGx8aFh4nm0XNoNNY9LhEyLNUa7wH0wn8UD29QBM=
+
+Name: com/genfare/applet/encoder/EncoderApplet$7.class
+SHA-256-Digest: CmVWgMjWdjuYQ9NYJ5SgrIxV0CV3Z1mxpeuUb1AcdnA=
+
+Name: com/genfare/applet/encoder/EncoderApplet$24.class
+SHA-256-Digest: 1jwcrRBih2tfe8DyOnN7cmlys2kfWx0KsVUuFljBKtQ=
+
+Name: com/genfare/applet/encoder/EncoderApplet$31.class
+SHA-256-Digest: BaBSRAFbXzuMdhCzphlxs/Y6hr40X7Kfk7XYuwmCuU0=
+
+Name: com/genfare/applet/encoder/EncoderApplet$19.class
+SHA-256-Digest: viNfauDOEzLfr3Hx+Txf8WDAkfZDkHu5qhsgl5xjzl0=
+
+Name: com/genfare/applet/encoder/EncoderApplet$29.class
+SHA-256-Digest: ftPmWo5TdShNu1rgg6OTO2EBFnZNMA+Wbh/2lFydVWk=
+
+Name: com/genfare/applet/encoder/EncoderApplet$2.class
+SHA-256-Digest: 14xmuEjMqNp4vzYNaExZCSloGfLIl8CanNn8c7MTcaE=
+
+Name: com/genfare/applet/encoder/EncoderApplet$4.class
+SHA-256-Digest: O/W/aeTXOkppVX/3+4R1jWblqWtvOnFMASG2zFPNb/I=
+
+Name: com/genfare/applet/encoder/EncoderApplet$26.class
+SHA-256-Digest: K1H+PbtOfyPASu6poqajvtj0LD4SSPLoxmdDudDN71I=
+
+Name: com/genfare/applet/encoder/EncoderApplet$11.class
+SHA-256-Digest: AC18zl7kPuzsjAnh7YMH2J0EE2Hh5T0S12SiopgyWdA=
+
+Name: com/genfare/applet/encoder/EncoderApplet$16.class
+SHA-256-Digest: 7OMeJjHRjczH71CCjFbC/VF5c9lJBPdCArleFMmbxSs=
+
+Name: com/genfare/applet/encoder/EncoderApplet$21.class
+SHA-256-Digest: tIorHiWdy/4btkTt3D/6qZC3t3+KPce9bZobuWAwfpQ=
+
+Name: com/genfare/applet/encoder/EncoderApplet$18.class
+SHA-256-Digest: zp+izAFYG7gPM/4RIz/rAXh4vxUGDVoOpYVEgWfbljo=
+
+Name: com/genfare/applet/encoder/EncoderApplet$9.class
+SHA-256-Digest: ZyzfdjgqqkZmTqa3HZ2BEm0SRYhdF9D52vg+vQH3dH0=
+
+Name: com/genfare/applet/encoder/EncoderApplet.class
+SHA-256-Digest: Ld5X84spra/bqL9P1+4BQ9G/QjWXRuwdCWJhGEhQ4Y8=
+
+Name: com/genfare/applet/encoder/EncoderApplet$1.class
+SHA-256-Digest: L13Kn83GvRBGj7tHJYNcGen8JExuIpVaCkR4ppr+gLQ=
+
+Name: com/genfare/applet/encoder/EncoderApplet$ResultObject.class
+SHA-256-Digest: ug4LfSmtHt6paPSQMzvLgFtFmeiai1AA/KmuyBXRUvE=
+
+Name: com/genfare/applet/encoder/EncoderApplet$13.class
+SHA-256-Digest: IoHqI/xp1ZHFP52lXI9516qyNQvgYM4CM0oMGiu0UI0=
+
+Name: com/genfare/applet/encoder/EncoderApplet$23.class
+SHA-256-Digest: mm3q8FzbERH8L4DreufcFAyLjQplcrGXB9SUSjmPOQc=
+
+Name: com/genfare/applet/encoder/EncoderApplet$33.class
+SHA-256-Digest: 1ylMzk5wT9jzNyioky0f6tlm5bajkCf/XYc2p5K4OUQ=
+
+Name: com/genfare/applet/encoder/EncoderApplet$28.class
+SHA-256-Digest: /0fbPis9jIuUxu8JYk8wXiQ1RVpv3BUbOljWwL5FMi8=
+
+Name: com/genfare/applet/encoder/EncoderApplet$15.class
+SHA-256-Digest: Kbm06gbDAZ7/av2Si5dnnacxM35VOKELyt1zWzpkgX4=
+
+Name: com/genfare/applet/encoder/EncoderApplet$6.class
+SHA-256-Digest: Cp0p07r6cSahkUFURigeYR3rF9ug1JZ2Pb0Y+6+S3gE=
+
+Name: com/genfare/applet/encoder/EncoderApplet$25.class
+SHA-256-Digest: AxjT2AYuTV4k3/9m+aLjU7/pd4HBCb0I2GMfJBWI5Og=
+
+Name: com/genfare/applet/encoder/EncoderApplet$10.class
+SHA-256-Digest: KJ119Ni31A/zk6I1pfMNdp9ymSxImnqYxMAoUY+jNko=
+
+Name: com/genfare/applet/encoder/EncoderApplet$30.class
+SHA-256-Digest: SPmUbbjTJvQhIPPjavblKJbgTTPfzDSUvUF+1mv1aYI=
+
