@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ChangeDetectorRef, AfterViewInit, ViewChild, Type } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, NgZone ,AfterViewInit, ViewChild, Type } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
 // import { ImageCropperComponent, CropperSettings, Bounds } from 'ng2-img-cropper';
@@ -87,18 +87,25 @@ export class ReadcardComponent implements OnInit {
 
     title = 'Add Cdta';
     url = '';
- 
     event = "20+20";
-   
     value: any
     public singleImage: any
-    public carddata: Array<object>;
+    public carddata= [];
     public show: Boolean = false;
 
-    constructor(private cdtaservice: CdtaService,  private router: Router, private electronService: ElectronService, private ref: ChangeDetectorRef, private http: HttpClient) {
- 
-    }
+    constructor(private cdtaservice: CdtaService,  private router: Router, private _ngZone: NgZone, private electronService: ElectronService, private ref: ChangeDetectorRef, private http: HttpClient) {
 
+        this.electronService.ipcRenderer.on('updateResult', (event, data) => {
+            if (data != undefined && data != "") {
+                this.show = true;
+    
+                this._ngZone.run(() => {
+                    this.carddata = new Array(JSON.parse(data));
+                });
+            }  
+        });
+
+    }
 
     /* JAVA SERVICE CALL */
 
@@ -110,16 +117,7 @@ export class ReadcardComponent implements OnInit {
 
 
     ngOnInit() {
-        this.electronService.ipcRenderer.on('updateResult', (event, data) => {
-            if (data != undefined && data != "") {
-                this.show = true;
-                this.carddata = new Array(JSON.parse(data));
-               // this.ref.detectChanges()
-
-                console.log('final result', this.carddata)
-            }
-
-        });
+       
     }
 
 }
