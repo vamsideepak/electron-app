@@ -6,10 +6,7 @@ var fs = require("fs");
 var javaInit = require('./javaInit')
 var childProcess = require('child_process');
 
-require('find-java-home')(function (err, home) {
-  if (err) return console.log('java home error:' + err);
-  console.log('find home success :' + home);
-})
+
 
 
 
@@ -34,7 +31,7 @@ function createWindow() {
   //win.webContents.openDevTools();
 
   // The following is optional and will open the DevTools:
-  //win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   win.on("closed", () => {
     win = null;
