@@ -1,66 +1,70 @@
 import { Injectable } from '@angular/core';
-//import { Game } from './components/index/Game';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders(
+    {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'accept': 'application/json'
+     
+    }
+    
+    )
 };
-
-const apiUrl = 'https://api.qa.gfcp.io/services/data-api/v1/wpf/id_card/updateExisting?tenant=CDTA&access_token=94ccd96b-ff75-4b9c-b12d-a3257b1ebde4';
+      
+const apiUrl = "https://api.qe.gfcp.io/services/data-api/v1/wpf/id_card/updateExisting?tenant=CDTA&access_token=6294ffc6-1189-4803-8ddf-6a99f039f37a"
 
 @Injectable({
   providedIn: 'root'
 })
 
 
-
 export class CdtaService {
-
-
 
   constructor(private http: HttpClient) { }
 
 
-  
+  login(username: string, password: string): Observable<any>  {
+    let userInfo = { username: username, password: password }
+    return this.http.post('https://cdta-qe.gfcp.io/login', JSON.stringify(userInfo),{
+      headers: { 
+      'Content-Type':'application/x-www-form-urlencoded',
+      "accept": "application/json"
+      },
+      responseType: 'json'
+      
+      })
+        .pipe(
+          map((result: any) => {
+            console.log('user data', result)
+            return result
+          }
+          ),
+          catchError(this.handleError)
+        );
+}
 
-  addGame(name, price) {
-    const obj = {
-      name: name,
-      price: price
-    };
-    this
-      .http
-      .post(`${apiUrl}/games/add`, obj)
-      .subscribe(res =>
-        console.log('Done')
-      );
-  }
-
-
-  /** upload image api */
-
-  // uploadImage(image) {
-  //   return this
-  //     .http
-  //     .post(`${apiUrl}`, image)
-
-  // }
-
-
-  uploadImage(data): Observable<any> {
-    return this.http.post(apiUrl, data, httpOptions)
+  uploadImage(data:any): Observable<Object> {
+   
+    return this.http.post(apiUrl, data, 
+      {
+      headers: {
+      'Content-Type':'application/x-www-form-urlencoded',
+      "accept": "application/json"
+      },
+      responseType: 'text'
+      })
       .pipe(
+        map((result: any) => {
+          return result
+        }
+        ),
         catchError(this.handleError)
       );
   }
 
-  // getGames() {
-  //   return this
-  //     .http
-  //     .get(`${apiUrl}/games`);
-  // }
 
 
   cardData() {
@@ -86,7 +90,7 @@ export class CdtaService {
 
   private extractData(res: Response) {
     let body = res;
-    return body || { };
+    return body || {};
   }
 }
 

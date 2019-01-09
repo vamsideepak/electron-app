@@ -3,17 +3,21 @@ var java = require('java');
 var path = require("path");
 var url = require("url");
 var fs = require("fs");
+var os = require('os');
 var javaInit = require('./javaInit')
 var childProcess = require('child_process');
 
-
-
-
+// let mainWindow = BrowserWindow = undefined;
+// let workerWindow = BrowserWindow = undefined;
 
 let win;
 
 function createWindow() {
   win = new BrowserWindow({ width: 1000, height: 800 });
+
+  win.webContents.getPrinters();
+
+  console.log('printer', win.webContents.getPrinters());
 
   //to remove menu 
   win.setMenu(null);
@@ -27,15 +31,25 @@ function createWindow() {
     })
   );
 
+  win.on("closed", () => {
+    win = null;
+  });
+
   //added this line to open developer tools for debugging
   //win.webContents.openDevTools();
 
   // The following is optional and will open the DevTools:
   win.webContents.openDevTools()
 
-  win.on("closed", () => {
-    win = null;
-  });
+  // workerWindow = new BrowserWindow({ width: 1000, height: 800 });
+  // workerWindow.loadURL("file://" + __dirname + "/worker.html");
+  // // workerWindow.hide();
+  // workerWindow.webContents.openDevTools();
+  // workerWindow.on("closed", () => {
+  //     workerWindow = undefined;
+  // });
+
+
 }
 
 //camera access code
@@ -102,8 +116,33 @@ try {
 }
 
 event.sender.send('updateResult', smartread);
+
+
 })
 
 /*
  * Read SmartCard Functionality End Here
   */
+
+  
+
+// // retransmit it to workerWindow
+// ipcMain.on("printPDF", (event, content) => {
+//   console.log(content);
+//   workerWindow.webContents.send("printPDF", content);
+// });
+// // when worker window is ready
+// ipcMain.on("readyToPrintPDF", (event) => {
+//   const pdfPath = path.join(os.tmpdir(), 'print.pdf');
+//   // Use default printing options
+//   workerWindow.webContents.print({}, function (error, data) {
+//       if (error) throw error
+//       fs.writeFile(pdfPath, data, function (error) {
+//           if (error) {
+//               throw error
+//           }
+//           shell.openItem(pdfPath)
+//           event.sender.send('wrote-pdf', pdfPath)
+//       })
+//   })
+// })

@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {ImageCropperComponent} from 'ng2-img-cropper';
 import {NgxElectronModule} from 'ngx-electron';
 import { ReadcardComponent } from './components/readcard/readcard.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes:Routes = [
   { 
@@ -16,9 +17,13 @@ const routes:Routes = [
     redirectTo: '/readcard', 
     pathMatch: 'full'
    },
+   { 
+    path: 'login', 
+    component: LoginComponent 
+  },
   { 
     path: 'create', 
-    component: CameraComponent 
+    component: CameraComponent  
   },
 
   { 
@@ -32,7 +37,8 @@ const routes:Routes = [
     AppComponent,
     CameraComponent,
     ImageCropperComponent,
-    ReadcardComponent
+    ReadcardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

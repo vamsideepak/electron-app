@@ -107,6 +107,27 @@ export class ReadcardComponent implements OnInit {
 
     }
 
+
+//      printDiv(divName) {
+//         var printContents = document.getElementById(divName).innerHTML;
+//         var originalContents = document.body.innerHTML;
+//         document.body.innerHTML = printContents;
+//        // this.electronService.ipcRenderer.send("printPDF", printContents);
+//         window.print();
+//         document.body.innerHTML = originalContents;
+//    }
+
+
+     printDiv() {
+       // var printContents = document.getElementById(divName).innerHTML;
+       // var originalContents = document.body.innerHTML;
+       // document.body.innerHTML = printContents;
+       // this.electronService.ipcRenderer.send("printPDF", printContents);
+        window.print();
+      //  document.body.innerHTML = originalContents;
+   }
+
+
     /* JAVA SERVICE CALL */
 
     readCard(event) {

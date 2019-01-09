@@ -35,13 +35,14 @@
       <div class="id-card-set">
         <div class="id-card-img float-left">
             <div id="cameraParent">
-                <!-- <div   id="camdemo" style="width:176px;height:205px;"></div> -->
                 <div *ngIf="browseImg">
                   <span *ngIf="data2.image">
                     <img [src]="data2.image" [width]="cropperSettings2.croppedWidth" [height]="cropperSettings2.croppedHeight">
                   </span>
                 </div>
-      
+                <div *ngIf = "uploadedImg">
+                  <img [src]="imgSrc">
+                </div>
               </div>
         </div>
         
@@ -66,7 +67,7 @@
       <button *ngIf="openCamera" (click)="captureCamera()" class="btn">Take Picture</button>
       <div *ngIf="cameraShot">
         <button (click)="captureCamera()" class="btn">Try Again</button>&nbsp; 
-        <button (click)="saveImage()" class="btn">Use Existing One</button>&nbsp; 
+        <button (click)="saveImage()" class="btn">Save to Local</button>&nbsp; 
         <button (click)="takesnapshot()" class="btn">Save Photo</button>
       </div>
       <h2>Upload Instructions:</h2>
@@ -75,12 +76,11 @@
         <li>Click Upload Photo (will replace existing photo)</li>
         <li><b>Photo size must be 176px X 205px</b></li>
       </ul>
-      <!-- <input type="file" name="pic" accept="image/*"> -->
       <div class="container-in-a photo-right" *ngIf="browseImg">
         <img-cropper #cropper [image]="data2" type="file" [settings]="cropperSettings2">
         </img-cropper>
       </div>
-      <input id="upload" type="file" class="hidden-input-element" (change)="fileChangeListener($event)">
+      <input id="upload" type="file" accept="image/*" class="hidden-input-element" (change)="fileChangeListener($event)">
       <div class="upload-btn">
         <button (click)="fileChange()"  class="btn">Upload Photo</button>
       </div>
@@ -102,25 +102,3 @@
 </div>
 
 
-
-
-
-<!-- <div class="img-div">
-  <img-cropper #cropper [image]="data2" [settings]="cropperSettings2">
-  </img-cropper>
-  <br>
-  <a href="javascript:void(0)" (click)="fileChange()">save</a>
-  <a href="javascript:void(0)" (click)="cancelUpload()">cancel</a>
-</div>
-
-<ul>
-
-  <li>
-    <a href="javascript:void(0)" id="upload_link">
-      Upload Picture
-    </a>​
-    <input id="upload" type="file" class="hidden-input-element" (change)="fileChangeListener($event)">
-  </li>
-</ul> -->
-<!-- </body>
-</html> -->

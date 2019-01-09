@@ -30,11 +30,11 @@ export class CameraComponent implements OnInit {
     public singleImage: any
     public carddata: Array<object>;
     public show: Boolean = false;
-    percentDone: number;
-    uploadSuccess: boolean;
+    imgSrc: any
     openCamera: Boolean = true;
     cameraShot: Boolean = false;
     browseImg: Boolean = false;
+    uploadedImg: Boolean = false;
     data2: any;
     file: File;
     imageData: any
@@ -81,6 +81,7 @@ export class CameraComponent implements OnInit {
         this.singleImage = '';
         WebCamera.reset();
         this.enabled = false
+        this.uploadedImg = false
         myReader.onloadend = function (loadEvent: any) {
             image.src = loadEvent.target.result;
             that.cropper.setImage(image);
@@ -106,52 +107,50 @@ export class CameraComponent implements OnInit {
      *   upload from browse option
      */
     public browseUpload() {
+        let values = {
+            imgData: this.data2.image,
+            customerId: 10315
 
-        let fileData: File = this.data2.image;
-        var binary = atob(this.data2.image.split(',')[1]);
-
-        var array = [];
-        for (var i = 0; i < binary.length; i++) {
-            array.push(binary.charCodeAt(i));
         }
-        let blobData = new Blob([new Uint8Array(array)], { type: this.file.type });
-        let file: FormData = new FormData();
-        file.append('file', blobData);
-        let headers = new Headers();
+        console.log('image', this.data2.image);
+        let content = new URLSearchParams()
+        content.set('imgData', values.imgData)
+        content.set('customerId', values.customerId.toString())
 
         this.cdtaservice
-            .uploadImage(file)
+            .uploadImage(content.toString())    
             .subscribe((data: any) => {
-
+                console.log('final data', data)
+                this.browseImg = false;
+                this.uploadedImg = true;
+                this.imgSrc = 'data:image/png;base64,' + data || 'data:image/jpg;base64,' + data
             });
     }
-
 
     /**
      *  upload from camera
      */
 
     public cameraUpload() {
-
-        let fileData: File = this.singleImage;
-        var binary = atob(this.singleImage.split(',')[1]);
-        var array = [];
-        for (var i = 0; i < binary.length; i++) {
-            array.push(binary.charCodeAt(i));
+        let values = {
+            imgData: this.singleImage,
+            customerId: 10315,
         }
-        let blobData = new Blob([new Uint8Array(array)], { type: "image/png" });
-        let file: FormData = new FormData();
-        file.append('file', blobData);
-        let headers = new Headers();
-
+        let content = new URLSearchParams()
+        content.set('imgData', values.imgData)
+        content.set('customerId', values.customerId.toString())
         this.cdtaservice
-            .uploadImage(file)
+            .uploadImage(content.toString())
             .subscribe((data: any) => {
+                this.uploadedImg = true
+                $("#camdemo").remove();
+                this.imgSrc = 'data:image/png;base64,' + data || 'data:image/jpg;base64,' + data
+                console.log('final data', data)
 
             });
     }
 
-/** Function open camera */
+    /** Function open camera */
 
     captureCamera() {
 
@@ -161,6 +160,7 @@ export class CameraComponent implements OnInit {
         });
 
         this.cameraShot = true
+        this.uploadedImg = false
         this.openCamera = false
         this.browseImg = false
         this.singleImage = ''
@@ -227,7 +227,7 @@ export class CameraComponent implements OnInit {
             this.singleImage = data_uri;
             console.log("takesnap", this.singleImage)
             document.getElementById('camdemo').innerHTML =
-                '<img src="' + data_uri + '"/>';
+                '<img src="' + this.singleImage + '"/>';
         });
     }
 

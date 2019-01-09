@@ -9,7 +9,26 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "electron": "ng build --base-href ./ && electron ."
+    "electron": "ng build --base-href ./ && electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "com.cdta.electronapp",
+    "win": {
+      "target": "nsis",
+      "asar": false,
+      "icon": "https://s3.amazonaws.com/qe-gfcp-tenant/cdta/resources/img/header_logo.png"
+    },
+    "files": [
+      "index.html",
+      "main.js",
+      "javaInit.js",
+      "javajars/**/*",
+      "*.js",
+      "build",
+      "node_modules"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -31,7 +50,6 @@
     "electron-reload": "^1.2.5",
     "express": "^4.16.3",
     "fs": "0.0.1-security",
-    "leveldb": "^0.7.1",
     "mongoose": "^5.2.15",
     "ng": "0.0.0",
     "node-java": "^1.0.1",
@@ -41,7 +59,8 @@
     "rebuild": "^0.1.2",
     "rxjs": "~6.2.0",
     "url": "^0.11.0",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "java": "^0.10.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.8.0",
@@ -55,6 +74,7 @@
     "buffertools": "^2.1.6",
     "codelyzer": "~4.3.0",
     "electron": "^3.0.2",
+    "electron-builder": "^20.38.4",
     "electron-rebuild": "^1.8.2",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",

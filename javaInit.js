@@ -17,7 +17,8 @@
 "use strict";
 var fs = require("fs");
 var java = require("java");
-var baseDir = "javajars/src/com/genfare/applet/encoder";
+var path = require("path")
+var baseDir = path.join(__dirname ,"javajars","src" ,"com" ,"genfare", "applet","encoder");
 var dependencies = fs.readdirSync(baseDir);
  
 dependencies.forEach(function(dependency){
